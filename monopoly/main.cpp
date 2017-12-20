@@ -310,7 +310,6 @@ int main(int argc, const char * argv[]) {
 
 	propertiesText.move(1627, 430);
 
-
 	property[1].move(1620, 480);
 
 	board.setSmooth(true);
@@ -490,6 +489,7 @@ int main(int argc, const char * argv[]) {
 		//    robotPiece.move(1, 0);
 		//}
 
+		//Places live tile
 		liveTileTextures.at(location).setPosition(1610, 0);
 		for (int i = 0; i < 22; i++) {
 			property.at(i).setPosition(1620, 470 + (30 * i));
@@ -532,6 +532,11 @@ int main(int argc, const char * argv[]) {
 		currPlayer = players[turn];
 
 		cout << "\n" << currPlayer->getName() << "'s turn. What would you like to do?" << endl << endl;
+
+		// move character and update budgets
+		int bud = currPlayer->getMoney();
+		string budStr = to_string(bud);
+		budget.at(turn).setString("Budget: $" + budStr);
 
 		// displays menu, keeps running method while not "Proceed with turn"
 		while (menu(currPlayer, properties));
@@ -593,6 +598,10 @@ int main(int argc, const char * argv[]) {
 			// Go
 		case 0:
 			cout << "You landed on GO!" << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			break;
 
 			// Mediterranean Ave
@@ -600,6 +609,10 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[0];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
 			break;
 
@@ -608,13 +621,23 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[1];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Income Tax
 		case 3:
 			cout << "You landed on INCOME TAX. Pay $200." << endl;
 			currPlayer->subtractMoney(200);
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
+
 			break;
 
 			// Oriental Ave
@@ -622,13 +645,23 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[2];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Comm Chest
 		case 5:
 			cout << "You landed on COMMUNITY CHEST #1!" << endl;
 			communityChest(currPlayer);
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
+
 			break;
 
 			// Vermont Ave
@@ -636,7 +669,12 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[3];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Connecticut Ave
@@ -644,12 +682,22 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[4];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Jail
 		case 8:
 			cout << "You landed on JAIL, just visiting..." << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
+
 			break;
 
 			// St. Charles Pl
@@ -657,7 +705,12 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[5];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// States Ave
@@ -665,7 +718,12 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[6];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Virginia Ave
@@ -673,13 +731,23 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[7];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Chance
 		case 12:
 			cout << "You landed on CHANCE #1!" << endl;
 			chance(currPlayer);
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
+
 			break;
 
 			// St. James Pl
@@ -688,6 +756,10 @@ int main(int argc, const char * argv[]) {
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
 			landOnProperty(propertyClass, currPlayer, turn, players);
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			break;
 
 			// Tennessee Ave
@@ -695,7 +767,12 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[9];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// NY Ave
@@ -703,12 +780,24 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[10];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Free Parking
 		case 16:
 			cout << "You landed on FREE PARKING!!" << endl;
+			cout << "You get $500!!" << endl;
+			currPlayer->addMoney(500);
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
+
 			break;
 
 			// Kentucky Ave
@@ -716,7 +805,12 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[11];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Indiana Ave
@@ -724,7 +818,12 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[12];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Illinois Ave
@@ -732,13 +831,23 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[13];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Comm Chest
 		case 20:
 			cout << "You landed on COMMUNITY CHEST #2!" << endl;
 			communityChest(currPlayer);
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
+
 			break;
 
 			// Atlantic Ave
@@ -746,7 +855,12 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[14];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Ventor Ave
@@ -754,7 +868,12 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[15];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Marvin Gardens
@@ -762,7 +881,12 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[16];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Go to Jail
@@ -771,19 +895,10 @@ int main(int argc, const char * argv[]) {
 			currPlayer->changeJail();
 			currPlayer->setLocation(8);
 			currPlayer->setDoubleTime(0);
-
-			if (turn == 0) { //move player 1
-				dogPiece.setPosition(x[location - 16], y[location - 16]);
-			}
-			if (turn == 1) { //move player 2
-				robotPiece.setPosition(x[location - 16], y[location - 16]);
-			}
-			if (turn == 2) { //move player 3
-				shipPiece.setPosition(x[location - 16], y[location - 16]);
-			}
-			if (turn == 3) { //move player 4
-				carPiece.setPosition(x[location - 16], y[location - 16]);
-			}
+			if (turn == 0) { dogPiece.setPosition(x[8], y[8]); }
+			if (turn == 1) { robotPiece.setPosition(x[8], y[8]); }
+			if (turn == 2) { shipPiece.setPosition(x[8], y[8]); }
+			if (turn == 3) { carPiece.setPosition(x[8], y[8]); }
 
 			break;
 
@@ -792,7 +907,12 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[17];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// NC Ave
@@ -800,7 +920,12 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[18];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Penn Ave
@@ -808,13 +933,23 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[19];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Luxury Tax
 		case 28:
 			cout << "You landed on LUXURY TAX. Pay $200." << endl;
 			currPlayer->subtractMoney(200);
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
+
 			break;
 
 			// Park Place
@@ -822,13 +957,23 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[20];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// Chance
 		case 30:
 			cout << "You landed on CHANCE #2!" << endl;
 			chance(currPlayer);
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
+
 			break;
 
 			// Boardwalk
@@ -836,7 +981,12 @@ int main(int argc, const char * argv[]) {
 			propertyClass = properties[21];
 			cout << "You landed on " << propertyClass->getName() << "!" << endl;
 			cout << "Location: " << location << " | Color: " << propertyClass->getColor() << endl;
+			if (turn == 0) { dogPiece.setPosition(x[location], y[location]); }
+			if (turn == 1) { robotPiece.setPosition(x[location], y[location]); }
+			if (turn == 2) { shipPiece.setPosition(x[location], y[location]); }
+			if (turn == 3) { carPiece.setPosition(x[location], y[location]); }
 			landOnProperty(propertyClass, currPlayer, turn, players);
+
 			break;
 
 			// should never happen
@@ -846,26 +996,10 @@ int main(int argc, const char * argv[]) {
 			break;
 		}
 
-		// move character and update budgets
-		int bud = currPlayer->getMoney();
-		string budStr = to_string(bud);
-
-		if (turn == 0) { //move player 1
-			dogPiece.setPosition(x[location], y[location]);
-			budget.at(0).setString("Budget: $" + budStr);
-		}
-		if (turn == 1) { //move player 2
-			robotPiece.setPosition(x[location], y[location]);
-			budget.at(1).setString("Budget: $" + budStr);
-		}
-		if (turn == 2) { //move player 3
-			shipPiece.setPosition(x[location], y[location]);
-			budget.at(2).setString("Budget: $" + budStr);
-		}
-		if (turn == 3) { //move player 4
-			carPiece.setPosition(x[location], y[location]);
-			budget.at(3).setString("Budget: $" + budStr);
-		}
+		//Update budget at end of turn
+		bud = currPlayer->getMoney();
+		budStr = to_string(bud);
+		budget.at(turn).setString("Budget: $" + budStr);
 
 		// determines if the player's properties are part of monopoly
 		monopoly(currPlayer);
@@ -911,7 +1045,6 @@ int main(int argc, const char * argv[]) {
 
 	}
 }
-
 
 // Method: handles the condition of player being in jail
 // @param player pointer to current player, int reference to the dice

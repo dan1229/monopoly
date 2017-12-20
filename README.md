@@ -1,9 +1,17 @@
-# monopoly
-Main project for Programming 2. Virtual version of Monopoly using C++.
+//=================================================================
+//8-Bit Monopoly
 
-8 Bit themed artwork with a basic GUI
-Inputs and updates are through the command line
-GUI displays properties, budgets, names, tiles, board, and the current player's location
+Main project for Programming 2. 8-Bit styled Monopoly in  C++.
+
+//=================================================================
+//Overview
+
+8-Bit themed artwork with a basic GUI
+Input and updates are output through the command line.
+GUI displays basic player and board information.
+
+//=================================================================
+//Contributors
 
 Programmers:
 - Michael Lee
@@ -15,20 +23,19 @@ Programmers:
 - Daniel Nazarian
 
 Artist:
-- Daniel Nazarian (pls A)
+- Daniel Nazarian
 
-GUI Expert:
+GUI Programmers:
 - Harsh Patel
 - Daniel Nazarian
 - Yasir Nemat
 
-Pixel Expert:
-- Yasir Nemat
-
-Logic Programmers:
+Game Logic Programmers:
 - Michael Lee
 - Dominic Salamone
 
-Nonexistant:
-- Abhinav Komaravelli
-- Abhiraj Kante
+//=================================================================
+//Specifications
+
+Uses SFML Library, dependencies must be declared in IDE.
+See screenshot for example of gameplay if it won't work properly.
